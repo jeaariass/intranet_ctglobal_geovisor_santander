@@ -1,0 +1,123 @@
+/* src/js/admin.css — Estilos panel de administración */
+.admin-main { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1rem; }
+
+.admin-toolbar {
+  display: flex; align-items: center; gap: .75rem;
+  margin-bottom: 1rem; flex-wrap: wrap;
+}
+.search-input {
+  flex: 1; min-width: 220px;
+  padding: .55rem .9rem;
+  border: 1.5px solid #d1d5db; border-radius: 8px;
+  font-size: .88rem; color: #111827; outline: none;
+  transition: border-color .15s;
+}
+.search-input:focus { border-color: #3b82f6; }
+
+/* ── Resumen roles ──────────────────────────────────────── */
+.role-summary {
+  display: flex; gap: .75rem; flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+.rs-card {
+  flex: 1; min-width: 90px;
+  background: #fff; border-radius: 10px;
+  padding: .85rem 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.07);
+  display: flex; flex-direction: column; align-items: center; gap: .2rem;
+}
+.rs-count { font-size: 1.6rem; font-weight: 800; color: #1d4ed8; }
+.rs-label { font-size: .72rem; color: #6b7280; font-weight: 600; letter-spacing: .02em; }
+
+/* ── Tabla de usuarios ──────────────────────────────────── */
+.table-wrap {
+  background: #fff; border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.07);
+  overflow: hidden;
+}
+.users-table { width: 100%; border-collapse: collapse; }
+.users-table thead th {
+  background: #f8fafc; padding: .65rem 1rem;
+  text-align: left; font-size: .75rem;
+  color: #6b7280; font-weight: 700;
+  border-bottom: 1.5px solid #e5e7eb;
+  white-space: nowrap;
+}
+.users-table tbody td {
+  padding: .7rem 1rem; font-size: .83rem;
+  color: #374151; border-bottom: 1px solid #f3f4f6;
+}
+.users-table tbody tr:last-child td { border-bottom: none; }
+.users-table tbody tr:hover td { background: #f8fafc; }
+.tbl-loading { text-align: center; padding: 2rem; color: #9ca3af; }
+
+/* ── Modal ──────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 9000;
+  background: rgba(15,23,42,.5);
+  backdrop-filter: blur(3px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 1rem;
+}
+.modal-overlay[hidden] { display: none; }
+
+.modal-card {
+  background: #fff; border-radius: 14px;
+  width: min(480px, 100%);
+  box-shadow: 0 24px 64px rgba(0,0,0,.25);
+  max-height: 90vh; overflow-y: auto;
+}
+.modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 1.5rem 0;
+  border-bottom: 1px solid #f3f4f6; padding-bottom: 1rem;
+}
+.modal-header h2 { font-size: 1rem; font-weight: 800; color: #111827; }
+.modal-close {
+  background: none; border: none; cursor: pointer;
+  color: #6b7280; font-size: 1rem; padding: .25rem;
+  border-radius: 6px; display: flex; align-items: center;
+  transition: background .15s;
+}
+.modal-close:hover { background: #f3f4f6; }
+
+#userForm { padding: 1.25rem 1.5rem; }
+
+.form-group { margin-bottom: .9rem; }
+.form-group label {
+  display: block; font-size: .8rem; font-weight: 600;
+  color: #374151; margin-bottom: .35rem;
+}
+.form-input {
+  width: 100%; padding: .6rem .85rem;
+  border: 1.5px solid #d1d5db; border-radius: 8px;
+  font-size: .88rem; color: #111827; outline: none;
+  transition: border-color .15s;
+}
+.form-input:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,.1); }
+
+.modal-actions {
+  display: flex; justify-content: flex-end; gap: .5rem;
+  padding-top: .75rem; border-top: 1px solid #f3f4f6;
+  margin-top: .75rem;
+}
+.btn-ghost-dark {
+  background: #f3f4f6; color: #374151; border: none;
+  padding: .45rem .9rem; border-radius: 7px;
+  font-size: .83rem; font-weight: 600; cursor: pointer;
+}
+
+.spinner {
+  display: inline-block; width: 14px; height: 14px;
+  border: 2px solid rgba(255,255,255,.3); border-top-color: #fff;
+  border-radius: 50%; animation: spin .7s linear infinite;
+}
+.spinner[hidden] { display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.login-error {
+  padding: .6rem .9rem; background: #fef2f2;
+  border: 1px solid #fca5a5; border-radius: 8px;
+  color: #dc2626; font-size: .82rem; margin-top: .5rem;
+}
+.login-error[hidden] { display: none; }
